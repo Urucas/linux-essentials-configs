@@ -1,0 +1,16 @@
+TENER INSTALADO EL MOD REWRITE:
+sudo a2enmod rewrite
+
+CREAR EL VHOST
+1- agregar en /etc/apache2/sites-available el archivo:
+	 <VirtualHost *:80>
+  	         DocumentRoot /var/www/MySite/public
+  	         ServerName www.mysite-local.com
+  	         ErrorLog /var/log/apache2/errorenews.log
+  	 </VirtualHost>
+
+2- agregar en /etc/apache2/sites-enabled el archivo linkeado al anterior estando parados en la carpeta sites-enabled:
+	ln -s ../sites-available/mysite my site 
+
+3- agregarlo en los /etc/hosts
+4- reiniciar apache (sudo /etc/init.d/apache2 restart)
